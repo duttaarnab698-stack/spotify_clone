@@ -3,67 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify - Your favourite music is here</title>
-    <link rel="stylesheet" href="style.css?v=20260220-1">
+    <title>Sureria - Your favourite music is here</title>
+    <link rel="stylesheet" href="style.css?v=20260220-6">
 </head>
 <body>
     <nav>
         <ul>
-            <li class="brand"><img src="logo.png" alt="Spotify"> Spotify</li>
+            <li class="brand"><img src="music.jpeg" alt="Spotify"> Sureria</li>
             <li>Home</li>
-            <li>About</li>
+            <li id="aboutNav">About</li>
         </ul>
     </nav>
 
+    <div id="aboutModal" class="aboutModal hidden">
+        <div class="aboutCard">
+            <button id="aboutClose" class="aboutClose" aria-label="Close About">&times;</button>
+            <h2>About Sureria</h2>
+            <p>Sureria is a modern web-based music player created to deliver a smooth, immersive, and distraction-free listening experience. Designed with a clean interface and intuitive controls, it allows users to explore playlists, play their favorite tracks, and enjoy music in a simple yet elegant environment.</p>
+            <p>This project is built with a passion for music and creativity, combining aesthetic design with functional features to showcase front-end development skills. Sureria reflects the idea that music should be easy to access, enjoyable to use, and visually pleasing.</p>
+            <p>Whether you want to relax, focus, or vibe with your favorite songs, Sureria is your personal space for sound.</p>
+            <h3>Contact</h3>
+            <p>Email: duttaarnab698@gmail.com</p>
+            <p>Phone: 7908606863</p>
+            <p>Version 1.0 - Crafted with &#10084; by Arnab</p>
+        </div>
+    </div>
+
     <div class="container">
-        
         <div class="songList">
             <h1>Best of Arnab's Playlist - No Copyright Sounds</h1>
             <div class="songItemContainer">
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Khawne Gorachand Khawne Kaalaa</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/10.jpg" alt="cover">
+                    <span class="songName">Khawne Gorachand Khawne Kaalaa</span>
+                    <span class="songlistplay"><span class="timestamp">04:12 <i id="0" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="9.jpg" alt="1">
-                    <span> DARKHAAST </span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/9.jpg" alt="cover">
+                    <span class="songName">DARKHAAST</span>
+                    <span class="songlistplay"><span class="timestamp">07:11 <i id="1" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="8.jpg" alt="1">
-                    <span>Tomake Chuye Dilam Female Version</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/8.jpg" alt="cover">
+                    <span class="songName">Tomake Chuye Dilam Female Version</span>
+                    <span class="songlistplay"><span class="timestamp">05:47 <i id="2" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/7.jpg" alt="cover">
+                    <span class="songName">Khat</span>
+                    <span class="songlistplay"><span class="timestamp">04:56 <i id="3" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/6.jpg" alt="cover">
+                    <span class="songName">Why This Kolaveri Di?</span>
+                    <span class="songlistplay"><span class="timestamp">04:20 <i id="4" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/5.jpg" alt="cover">
+                    <span class="songName">Hua Hain Aaj Pehli Baar</span>
+                    <span class="songlistplay"><span class="timestamp">05:09 <i id="5" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/4.jpg" alt="cover">
+                    <span class="songName">Nei Khoti Nei</span>
+                    <span class="songlistplay"><span class="timestamp">03:15 <i id="6" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/3.jpg" alt="cover">
+                    <span class="songName">Ehsaas</span>
+                    <span class="songlistplay"><span class="timestamp">03:53 <i id="7" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
                 <div class="songItem">
-                    <img src="10.jpg" alt="1">
-                    <span>Let me Love You</span>
-                    <span class="songlistplay"><span class="timestamp">05:34 <i class="far fa-play-circle"></i> </span></span>
+                    <img src="covers/2.jpg" alt="cover">
+                    <span class="songName">Long Distance Love</span>
+                    <span class="songlistplay"><span class="timestamp">04:42 <i id="8" class="far songItemPlay fa-play-circle"></i></span></span>
                 </div>
             </div>
         </div>
@@ -71,16 +84,18 @@
     </div>
 
     <div class="bottom">
-        <input type="range" name="range" id="myProgressBar" min="0" max="100">
+        <input type="range" name="range" id="myProgressBar" min="0" max="100" value="0">
         <div class="icons">
-           <i class="fas fa-3x fa-step-backward"></i>
-           <i class="far fa-3x fa-play-circle"></i>
-           <i class="fas fa-3x fa-step-forward"></i>
+            <i class="fas fa-3x fa-step-backward" id="previous"></i>
+            <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+            <i class="fas fa-3x fa-step-forward" id="next"></i>
         </div>
         <div class="songInfo">
-            <img src="playing.gif" width="42px" alt=""> Khawne Gorachand Khawne Kaalaa - Arijit Singh
+            <img src="playing.gif" width="42" id="gif" alt="playing animation">
+            <span id="masterSongName">Khawne Gorachand Khawne Kaalaa</span>
         </div>
     </div>
+
     <script src="https://kit.fontawesome.com/58cc2ba527.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
