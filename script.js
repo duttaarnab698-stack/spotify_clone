@@ -9,21 +9,25 @@ let masterSongName = document.getElementById("masterSongName");
 let currentTimeLabel = document.getElementById("currentTimeLabel");
 let totalTimeLabel = document.getElementById("totalTimeLabel");
 let songItemPlay = Array.from(document.getElementsByClassName("songItemPlay"));
+let songBanner = document.querySelector(".songBanner");
+let bannerTag = document.getElementById("bannerTag");
+let bannerTitle = document.getElementById("bannerTitle");
+let bannerText = document.getElementById("bannerText");
 let isSeeking = false;
 let aboutNav = document.getElementById("aboutNav");
 let aboutModal = document.getElementById("aboutModal");
 let aboutClose = document.getElementById("aboutClose");
 
 let songs = [
-  { songName: "Khawne Gorachand Khawne Kaalaa", filePath: "songs/10.mp3", coverPath: "covers/10.jpg" },
-  { songName: "DARKHAAST", filePath: "songs/9.mp3", coverPath: "covers/9.jpg" },
-  { songName: "Tomake Chuye Dilam Female Version", filePath: "songs/8.mp3", coverPath: "covers/8.jpg" },
-  { songName: "Khat", filePath: "songs/7.mp3", coverPath: "covers/7.jpg" },
-  { songName: "Why This Kolaveri Di?", filePath: "songs/6.mp3", coverPath: "covers/6.jpg" },
-  { songName: "Hua Hain Aaj Pehli Baar", filePath: "songs/5.mp3", coverPath: "covers/5.jpg" },
-  { songName: "Nei Khoti Nei", filePath: "songs/4.mp3", coverPath: "covers/4.jpg" },
-  { songName: "Ehsaas", filePath: "songs/3.mp3", coverPath: "covers/3.jpg" },
-  { songName: "Long Distance Love", filePath: "songs/2.mp3", coverPath: "covers/2.jpg" }
+  { songName: "Khawne Gorachand Khawne Kaalaa", filePath: "songs/10.mp3", coverPath: "covers/10.jpg", language: "Bengali" },
+  { songName: "DARKHAAST", filePath: "songs/9.mp3", coverPath: "covers/9.jpg", language: "Hindi" },
+  { songName: "Tomake Chuye Dilam Female Version", filePath: "songs/8.mp3", coverPath: "covers/8.jpg", language: "Bengali" },
+  { songName: "Khat", filePath: "songs/7.mp3", coverPath: "covers/7.jpg", language: "Hindi" },
+  { songName: "Why This Kolaveri Di?", filePath: "songs/6.mp3", coverPath: "covers/6.jpg", language: "Hindi" },
+  { songName: "Hua Hain Aaj Pehli Baar", filePath: "songs/5.mp3", coverPath: "covers/5.jpg", language: "Hindi" },
+  { songName: "Nei Khoti Nei", filePath: "songs/4.mp3", coverPath: "covers/4.jpg", language: "Bengali" },
+  { songName: "Ehsaas", filePath: "songs/3.mp3", coverPath: "covers/3.jpg", language: "Hindi" },
+  { songName: "Long Distance Love", filePath: "songs/2.mp3", coverPath: "covers/2.jpg", language: "Bengali" }
 ];
 
 const makeAllPlays = () => {
@@ -58,10 +62,26 @@ const updateTimeLabels = () => {
   if (totalTimeLabel) totalTimeLabel.innerText = formatTime(audioElement.duration);
 };
 
+const updateSongBanner = () => {
+  if (!songBanner || !songs[songIndex]) return;
+  songBanner.style.setProperty("--banner-image", `url("${songs[songIndex].coverPath}")`);
+};
+
+const updateBannerText = () => {
+  const currentSong = songs[songIndex];
+  if (!currentSong) return;
+
+  if (bannerTag) bannerTag.innerText = `${currentSong.language} Song`;
+  if (bannerTitle) bannerTitle.innerText = currentSong.songName;
+  if (bannerText) bannerText.innerText = "Bengali and Hindi songs, curated in one playlist.";
+};
+
 const playSongAtIndex = (index) => {
   songIndex = index;
   audioElement.src = songs[songIndex].filePath;
   masterSongName.innerText = songs[songIndex].songName;
+  updateSongBanner();
+  updateBannerText();
   audioElement.currentTime = 0;
   myProgressBar.value = 0;
   if (currentTimeLabel) currentTimeLabel.innerText = "0:00";
@@ -151,6 +171,8 @@ audioElement.addEventListener("ended", () => {
 });
 
 masterSongName.innerText = songs[songIndex].songName;
+updateSongBanner();
+updateBannerText();
 updateTimeLabels();
 
 if (aboutNav && aboutModal && aboutClose) {
