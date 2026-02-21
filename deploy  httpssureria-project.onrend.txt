@@ -1,0 +1,2 @@
+deploy : https://sureria-project.onrender.com
+GitHub : https://github.com/duttaarnab698-stack/Sureria-project.git

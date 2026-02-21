@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Varela+Round&display=swap');
 body {
     background-color: antiquewhite;
+    overflow-x: hidden;
 }
 
 *{
@@ -78,6 +79,7 @@ nav ul li {
     flex-direction: column;
     padding: 10px 16px 16px;
     gap: 8px;
+    width: 100%;
 }
 
 .icons {
@@ -88,7 +90,7 @@ nav ul li {
 }
 
 #myProgressBar {
-    width: 80vw;
+    width: min(80vw, 100%);
     cursor: pointer;
 }
 
@@ -194,9 +196,9 @@ nav ul li {
     }
 
     .container {
-        width: 94%;
-        padding: 18px 14px;
-        margin: 12px auto;
+        width: calc(100% - 16px);
+        padding: 14px 10px;
+        margin: 8px auto;
         border-radius: 10px;
     }
 
@@ -210,14 +212,16 @@ nav ul li {
     }
 
     .songItem {
-        gap: 8px;
-        padding: 6px 10px;
+        min-height: 52px;
+        gap: 6px;
+        padding: 6px 8px;
         border-radius: 22px;
     }
 
     .songName {
+        flex: 1;
         font-size: 0.9rem;
-        max-width: 48%;
+        min-width: 0;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -230,18 +234,22 @@ nav ul li {
     }
 
     .timestamp {
-        margin: 0 4px;
+        margin: 0 2px;
         font-size: 0.88rem;
         white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
     }
 
     .bottom {
         min-height: 120px;
-        padding: 8px 10px 12px;
+        padding: 8px 8px calc(10px + env(safe-area-inset-bottom));
     }
 
     #myProgressBar {
-        width: 92vw;
+        width: calc(100% - 8px);
+        max-width: 100%;
     }
 
     .icons i {
@@ -275,16 +283,17 @@ nav ul li {
 }
 
 @media (max-width: 420px) {
-    .songName {
-        max-width: 42%;
-        font-size: 0.84rem;
-    }
+    .songName { font-size: 0.84rem; }
 
     .timestamp {
         font-size: 0.8rem;
     }
 
     .songItem {
-        padding: 6px 8px;
+        padding: 6px 7px;
+    }
+
+    .songItem img {
+        margin: 0 4px 0 1px;
     }
 }

@@ -1,2 +1,0 @@
-deploy - https://spotify-clone-r7a5.onrender.com
-git - https://github.com/duttaarnab698-stack/spotify_clone.git
