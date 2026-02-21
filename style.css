@@ -94,6 +94,26 @@ nav ul li {
     cursor: pointer;
 }
 
+.progressWrap {
+    width: min(860px, 100%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeLabel {
+    min-width: 42px;
+    text-align: center;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 0.9rem;
+    color: #f1f1f1;
+    opacity: 0.95;
+}
+
+.progressWrap #myProgressBar {
+    flex: 1;
+}
+
 .songItemContainer {
     margin-top: 74px;
 }
@@ -250,6 +270,16 @@ nav ul li {
     #myProgressBar {
         width: calc(100% - 8px);
         max-width: 100%;
+    }
+
+    .progressWrap {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .timeLabel {
+        min-width: 38px;
+        font-size: 0.8rem;
     }
 
     .icons i {

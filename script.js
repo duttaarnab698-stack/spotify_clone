@@ -6,6 +6,8 @@ let masterPlay = document.getElementById("masterPlay");
 let myProgressBar = document.getElementById("myProgressBar");
 let gif = document.getElementById("gif");
 let masterSongName = document.getElementById("masterSongName");
+let currentTimeLabel = document.getElementById("currentTimeLabel");
+let totalTimeLabel = document.getElementById("totalTimeLabel");
 let songItemPlay = Array.from(document.getElementsByClassName("songItemPlay"));
 let isSeeking = false;
 let aboutNav = document.getElementById("aboutNav");
@@ -43,11 +45,27 @@ const setMasterToPause = () => {
   gif.style.opacity = 1;
 };
 
+const formatTime = (timeInSeconds) => {
+  if (!Number.isFinite(timeInSeconds) || timeInSeconds < 0) return "0:00";
+  const totalSeconds = Math.floor(timeInSeconds);
+  const minutes = Math.floor(totalSeconds / 60);
+  const seconds = totalSeconds % 60;
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+};
+
+const updateTimeLabels = () => {
+  if (currentTimeLabel) currentTimeLabel.innerText = formatTime(audioElement.currentTime);
+  if (totalTimeLabel) totalTimeLabel.innerText = formatTime(audioElement.duration);
+};
+
 const playSongAtIndex = (index) => {
   songIndex = index;
   audioElement.src = songs[songIndex].filePath;
   masterSongName.innerText = songs[songIndex].songName;
   audioElement.currentTime = 0;
+  myProgressBar.value = 0;
+  if (currentTimeLabel) currentTimeLabel.innerText = "0:00";
+  if (totalTimeLabel) totalTimeLabel.innerText = "0:00";
   audioElement.play();
   makeAllPlays();
   const current = document.getElementById(songIndex.toString());
@@ -83,7 +101,10 @@ audioElement.addEventListener("timeupdate", () => {
     let progress = parseInt((audioElement.currentTime / audioElement.duration) * 100, 10);
     myProgressBar.value = progress;
   }
+  updateTimeLabels();
 });
+
+audioElement.addEventListener("loadedmetadata", updateTimeLabels);
 
 myProgressBar.addEventListener("pointerdown", () => {
   isSeeking = true;
@@ -97,6 +118,7 @@ myProgressBar.addEventListener("input", () => {
   if (audioElement.duration) {
     audioElement.currentTime = (myProgressBar.value * audioElement.duration) / 100;
   }
+  updateTimeLabels();
 });
 
 songItemPlay.forEach((element) => {
@@ -129,6 +151,7 @@ audioElement.addEventListener("ended", () => {
 });
 
 masterSongName.innerText = songs[songIndex].songName;
+updateTimeLabels();
 
 if (aboutNav && aboutModal && aboutClose) {
   aboutNav.addEventListener("click", () => {
